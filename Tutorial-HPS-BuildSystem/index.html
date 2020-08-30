@@ -1,0 +1,1169 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <link rel="canonical" href="https://insper.github.io/Embarcados-Avancados/Tutorial-HPS-BuildSystem/">
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.11">
+    
+    
+      
+        <title>Tutorial 5 - HPS - Infra - Eletiva: Embarcados Avançados (SoC e Linux Embarcado)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.860688db.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.943997b5.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ffffff">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../css/progress.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tutorial-5-hps-infra" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://insper.github.io/Embarcados-Avancados/" title="Eletiva: Embarcados Avançados (SoC e Linux Embarcado)" class="md-header-nav__button md-logo" aria-label="Eletiva: Embarcados Avançados (SoC e Linux Embarcado)">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Eletiva: Embarcados Avançados (SoC e Linux Embarcado)
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Tutorial 5 - HPS - Infra
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/insper/Embarcados-Avancados/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Insper/Embarcados-Avancados
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://insper.github.io/Embarcados-Avancados/" title="Eletiva: Embarcados Avançados (SoC e Linux Embarcado)" class="md-nav__button md-logo" aria-label="Eletiva: Embarcados Avançados (SoC e Linux Embarcado)">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Eletiva: Embarcados Avançados (SoC e Linux Embarcado)
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/insper/Embarcados-Avancados/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Insper/Embarcados-Avancados
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Projeto
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Projeto" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Projeto
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Projeto-Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Projeto-Rubrica/" title="Rubrica" class="md-nav__link">
+      Rubrica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Projeto-Entrega-1/" title="Entregas" class="md-nav__link">
+      Entregas
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      FPGA
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="FPGA" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        FPGA
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-FPGA-RTL/" title="Tutorial 1 - FPGA - RTL" class="md-nav__link">
+      Tutorial 1 - FPGA - RTL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Entrega-1/" title="👁 Entrega 1" class="md-nav__link">
+      👁 Entrega 1
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-FPGA-NIOS/" title="Tutorial 2 - FPGA - NIOS" class="md-nav__link">
+      Tutorial 2 - FPGA - NIOS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Entrega-2/" title="👁 Entrega 2" class="md-nav__link">
+      👁 Entrega 2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-FPGA-NIOS-IP/" title="Tutorial 3 - FPGA - IP" class="md-nav__link">
+      Tutorial 3 - FPGA - IP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Entrega-3/" title="👁 Entrega 3" class="md-nav__link">
+      👁 Entrega 3
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      HPS
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="HPS" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        HPS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-HPS/" title="Visão geral" class="md-nav__link">
+      Visão geral
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-HPS-Running/" title="Tutorial 4 - HPS - Linux embarcado" class="md-nav__link">
+      Tutorial 4 - HPS - Linux embarcado
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Tutorial 5 - HPS - Infra
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Tutorial 5 - HPS - Infra" class="md-nav__link md-nav__link--active">
+      Tutorial 5 - HPS - Infra
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intel-socdes" class="md-nav__link">
+    Intel SOCDES
+  </a>
+  
+    <nav class="md-nav" aria-label="Intel SOCDES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testando" class="md-nav__link">
+    Testando
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-HPS-BlinkLED/" title="Tutorial 6 - HPS - BlinkLED" class="md-nav__link">
+      Tutorial 6 - HPS - BlinkLED
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Entrega-4/" title="👁 Entrega 4" class="md-nav__link">
+      👁 Entrega 4
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-HPS-Kernel/" title="Tutorial 7 - HPS - Compilando o kernel" class="md-nav__link">
+      Tutorial 7 - HPS - Compilando o kernel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-HPS-Buildroot/" title="Tutorial 8 - HPS -Buildroot" class="md-nav__link">
+      Tutorial 8 - HPS -Buildroot
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Entrega-5/" title="👁 Entrega 5" class="md-nav__link">
+      👁 Entrega 5
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      HPS + FPGA
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="HPS + FPGA" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        HPS + FPGA
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-HPS-FPGA-BlinkLED/" title="Tutorial - HPS + FPGA - Blink LED" class="md-nav__link">
+      Tutorial - HPS + FPGA - Blink LED
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-HPS-FPGA-VGA/" title="Tutorial - HPS + FPGA - VGA" class="md-nav__link">
+      Tutorial - HPS + FPGA - VGA
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Entrega-6/" title="👁 Entrega 6" class="md-nav__link">
+      👁 Entrega 6
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Entrega-Extra-1/" title="👁 Entrega Opcional 1" class="md-nav__link">
+      👁 Entrega Opcional 1
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Acelerando
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Acelerando" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Acelerando
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-Acelerando-HLS/" title="Tutorial - Acelerando - HLS" class="md-nav__link">
+      Tutorial - Acelerando - HLS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Úteis
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Úteis" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        Úteis
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../info-FPGA-e-Softwares/" title="Infraestrutura de HW e SWs" class="md-nav__link">
+      Infraestrutura de HW e SWs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../info-VHDL/" title="VHDL" class="md-nav__link">
+      VHDL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../info-SDcard/" title="Atualizando o SDCARD" class="md-nav__link">
+      Atualizando o SDCARD
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../info-HPS-Serial/" title="Screen" class="md-nav__link">
+      Screen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../info-HPS-ethernet/" title="Ethernet" class="md-nav__link">
+      Ethernet
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Tutoriais Alunos
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Tutoriais Alunos" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
+        Tutoriais Alunos
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2019/Tutoriais/" title="Tutoriais 2019" class="md-nav__link">
+      Tutoriais 2019
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2019/Gabriel-TensorFlow/" title="Gabriel Moreira - TensorFlow" class="md-nav__link">
+      Gabriel Moreira - TensorFlow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2019/Leo-OpenCL/" title="Leonardo Medeiros - Tutorial OpenCL" class="md-nav__link">
+      Leonardo Medeiros  - Tutorial OpenCL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2019/Elisa-Yocto/" title="Elisa Malzoni - Yocto" class="md-nav__link">
+      Elisa Malzoni - Yocto
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2019/Pedro-OpenCV/" title="Pedro de la Penã - Jetson Nano GPU" class="md-nav__link">
+      Pedro de la Penã - Jetson Nano GPU
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2019/Martim-F1/" title="Martim F. José - FPGA na AWS" class="md-nav__link">
+      Martim F. José - FPGA na AWS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2019/Toranja-DevDriver/" title="Bruno Toranja - Linux Device Driver" class="md-nav__link">
+      Bruno Toranja - Linux Device Driver
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#intel-socdes" class="md-nav__link">
+    Intel SOCDES
+  </a>
+  
+    <nav class="md-nav" aria-label="Intel SOCDES">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#testando" class="md-nav__link">
+    Testando
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Insper/Embarcados-Avancados/edit/master/docs-src/Tutorial-HPS-BuildSystem.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="tutorial-5-hps-infra">Tutorial 5 - HPS - Infra<a class="headerlink" href="#tutorial-5-hps-infra" title="Permanent link">&para;</a></h1>
+<div class="admonition success">
+<p class="admonition-title">Revisão 2020-2</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> passos</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> teoria/ texto</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> spellcheck</li>
+</ul>
+</div>
+<p>Vamos instalar o ferramental (compiladores) que será utilizado para compilar o kernel e o filesystem. Deveremos instalar o <code>soceds</code> e o <code>linaro-gcc</code> .</p>
+<h2 id="intel-socdes">Intel SOCDES<a class="headerlink" href="#intel-socdes" title="Permanent link">&para;</a></h2>
+<p>Você irá precisar ter o software <code>SOCEDS</code> instalado, e ele precisa ser a mesma versão do Quartus. Link para download:</p>
+<ul>
+<li><a href="http://fpgasoftware.intel.com/soceds/">Intel SoC FPGA Embedded Development Suite</a></li>
+</ul>
+<p>Vamos precisar inserir no path do bash referência para uma série de softwares a serem usados, modifique seu <code>.bashrc</code> inserindo: </p>
+<div class="admonition note"></div>
+<p>Ao fazer o download do <code>soceds</code> deve-se verificar para ser a mesma versão do Quartus.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">ALTERAPATH</span><span class="o">=</span>~/intelFPGA/18.1/
+
+<span class="nb">export</span> <span class="nv">ALTERAPATH</span><span class="o">=</span>/home/corsi/opt/intelFPGA/18.1
+<span class="nb">export</span> <span class="nv">QUARTUS_ROOTDIR</span><span class="o">=</span><span class="nv">$ALTERAPATH</span>/quartus/
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">ALTERAPATH</span><span class="si">}</span>/quartus/bin
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">ALTERAPATH</span><span class="si">}</span>/modelsim_ase/linuxaloem/
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">ALTERAPATH</span><span class="si">}</span>/quartus/sopc_builder/bin/
+
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">ALTERAPATH</span><span class="si">}</span>/embedded/
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">ALTERAPATH</span><span class="si">}</span>/embedded/host_tools/altera/preloadergen/
+
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">ALTERAPATH</span><span class="si">}</span>/hls/bin/
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">ALTERAPATH</span><span class="si">}</span>/hls/host/linux64/lib/
+
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">ALTERAPATH</span><span class="si">}</span>/nios2eds/
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">ALTERAPATH</span><span class="si">}</span>/nios2eds/sdk2/bin/
+
+<span class="nb">export</span> <span class="nv">SOCEDS_DEST_ROOT</span><span class="o">=</span><span class="si">${</span><span class="nv">ALTERAPATH</span><span class="si">}</span>/embedded
+<span class="nb">export</span> <span class="nv">SOCEDS_HWLIB</span><span class="o">=</span><span class="si">${</span><span class="nv">ALTERAPATH</span><span class="si">}</span>/embedded/ip/altera/hps/altera_hps/hwlib/
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Lembre de verificar se o <strong>ALTERAPATH</strong> desse exemplo é o caminho correto da instalação do Quartus</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">outros bashs</p>
+<p>Se estiver usando outro bash (zsh/ fish) será necessário editar o arquivo de configuração referente.</p>
+</div>
+<h3 id="testando">Testando<a class="headerlink" href="#testando" title="Permanent link">&para;</a></h3>
+<p>Para testar, digite no terminal <code>nios2_command_shell.sh</code> (após abrir uma nova aba, ou executar <code>source ~/.bashrc</code>):</p>
+<div class="highlight"><pre><span></span><code>$ nios2_command_shell.sh 
+------------------------------------------------
+Altera Nios2 Command Shell <span class="o">[</span>GCC <span class="m">4</span><span class="o">]</span>
+
+Version <span class="m">16</span>.1, Build <span class="m">196</span>
+------------------------------------------------
+
+$ <span class="nb">exit</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Isso só testa uma parte da instalação (soceds)</p>
+</div>
+<h1 id="gcc-toolchain">GCC toolchain<a class="headerlink" href="#gcc-toolchain" title="Permanent link">&para;</a></h1>
+<p>Iremos utilizar o GCC cross compile fornecido pelo Linaro, esse mesmo GCC será utilizado para compilar o Kernel, gerar o file system e compilar os programas que executarão no Linux. </p>
+<div class="admonition note">
+<p class="admonition-title">Wikipidia Linaro</p>
+<p><em>Linaro is an engineering organization that works on free and open-source software such as the Linux kernel, the GNU Compiler Collection, power management, graphics and multimedia interfaces for the ARM family of instruction sets and implementations thereof as well as for the Heterogeneous System Architecture.</em></p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Linaro">https://en.wikipedia.org/wiki/Linaro</a></li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">gcc</p>
+<p>No site do linaro existem vários <code>GCC</code> diferentes, cada um com uma configuração diferente. O que vamos usar é <code>arm-linux-gnueabihf</code> isso significa:</p>
+<ul>
+<li><code>linux</code>: para compilar programas que executarão no linux (poderia ser baremetal)</li>
+<li><code>eabi</code>: <a href="https://processors.wiki.ti.com/index.php/EABI">Embedded Application Binary Interface</a> para ser usado pelo sistema operacional.</li>
+<li><code>hf</code>: usa multiplicação de ponto flutuante de hardware</li>
+</ul>
+</div>
+<p>Do site de <a href="https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/">binários do Linaro</a> abaixe a versão <code>gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf.tar.xz</code> e extraía para alguma pasta no seu Linux.</p>
+<div class="admonition note">
+<p class="admonition-title">Quer baixar via terminal?</p>
+<p>Meus projetos ficam todos dentro da pasta: <code>/home/corsi/work/</code>, por isso eu extraí para lá. Você pode escolher outro local.</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> ~/work
+$ wget https://releases.linaro.org/components/toolchain/binaries/latest-7/arm-linux-gnueabihf/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf.tar.xz
+$ tar xvf gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf.tar.xz
+</code></pre></div>
+
+</div>
+<p>De uma olhada na pasta recém extraída: </p>
+<div class="highlight"><pre><span></span><code>$ cd gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf 
+$ tree -L 1
+...
++ arm-linux-gnueabihf
++ bin
+ + arm-linux-gnueabihf-addr2line
+ + arm-linux-gnueabihf-ar
+ + ...
+ + arm-linux-gnueabihf-c++
+ + arm-linux-gnueabihf-g++
+ + arm-linux-gnueabihf-gcc
++ include
++ lib
++ libexec
++ share
+</code></pre></div>
+
+<p>Temos todas as ferramentas necessárias para compilar e linkar códigos em C e C++ para o ARM.</p>
+<p>Note que no path do gcc temos o prefixo : <strong>gnueabihf</strong>. </p>
+<div class="admonition example">
+<p class="admonition-title">Pesquisa</p>
+<p>Qual a diferença entre <code>eabi</code> e <code>hf</code></p>
+</div>
+<h2 id="criando-um-atalho-no-bash">Criando um atalho no bash<a class="headerlink" href="#criando-um-atalho-no-bash" title="Permanent link">&para;</a></h2>
+<p>Vamos criar um atalho para essa pasta no bash. Edite o arquivo <code>~/.bashrc</code> para incluir a pasta <code>~/work/gcc-linaro.../bin/</code> na variável do sistema: <strong>GCC_Linaro</strong>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># GCC Linaro on path</span>
+<span class="nb">export</span> <span class="nv">GCC_Linaro</span><span class="o">=</span>/home/corsi/work/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/bin
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="si">${</span><span class="nv">GCC_Linaro</span><span class="si">}</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Edite o comando para a pasta correta de onde Linaro foi extraído: <code>/home/...</code></p>
+</div>
+<p>Agora temos um atalho para o <code>gcc-arm</code>, vamos testar :</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nv">$GCC_Linaro</span>/arm-linux-gnueabihf-gcc -v
+...
+Using built-in specs.
+<span class="nv">COLLECT_GCC</span><span class="o">=</span>/home/corsi/work/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc
+<span class="nv">COLLECT_LTO_WRAPPER</span><span class="o">=</span>/home/corsi/work/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/bin/../libexec/gcc/arm-linux-gnueabihf/7.4.1/lto-wrapper
+</code></pre></div>
+
+<p>E ele também deve estar no path, como <code>arm-linux-*</code>:</p>
+<p><img alt="" src="../figs/Tutorial-HLS-BuildSystem-armgcc.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>É possível instalar o <code>arm-linux</code> via <code>apt install</code>, mas não vamos fazer isso pois queremos ter controle da versão do compilador que estamos utilizando.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">bashrc ao final</p>
+<p>Eu não modifico meu <code>bashrc</code>, o que eu faço é criar um arquivo com o nome: <code>Quartus18.sh</code> 
+ e coloco toda essa configuração nele, e quando eu quero trabalhar na disciplina eu só
+ preciso executar <code>source ~/Quartus18.sh</code> e tenho meu ambiente configurado. Com isso, eu tenho
+ a vantagem de ter 'várias' versões instaladas e selecionar a que quero trabalhar. </p>
+<p>Isso também funciona pois eu tenho ambientes diferentes, com base nas disciplinas: Elementos tem um
+ e Avançados outro.</p>
+<p>Meu <code>Quartus18.sh</code> é o seguinte:</p>
+<div class="highlight"><pre><span></span><code>echo &quot;INTEL FPGA QUARTUS 18.1&quot;
+
+export MGLS_LICENSE_FILE=/home/corsi/opt/intelFPGA/1-MBTRJ3_License.dat
+export LM_LICENSE_FILE=/home/corsi/opt/intelFPGA/1-MBTRJ3_License.dat
+
+export ALTERAPATH=/home/corsi/opt/intelFPGA/18.1
+export QUARTUS_ROOTDIR=$ALTERAPATH/quartus/
+export PATH=$PATH:${ALTERAPATH}/quartus/bin
+export PATH=$PATH:${ALTERAPATH}/modelsim_ase/linuxaloem/
+export PATH=$PATH:${ALTERAPATH}/quartus/sopc_builder/bin/
+
+export PATH=$PATH:${ALTERAPATH}/embedded/
+export PATH=$PATH:${ALTERAPATH}/embedded/host_tools/altera/preloadergen/
+
+export PATH=$PATH:${ALTERAPATH}/hls/bin/
+export LD_LIBRARY_PATH=${ALTERAPATH}/hls/host/linux64/lib/
+
+export PATH=$PATH:${ALTERAPATH}/nios2eds/
+export PATH=$PATH:${ALTERAPATH}/nios2eds/sdk2/bin/
+
+export SOCEDS_DEST_ROOT=${ALTERAPATH}/embedded
+export SOCEDS_HWLIB=${ALTERAPATH}/embedded/ip/altera/hps/altera_hps/hwlib/
+
+export GCC_Linaro=/home/corsi/work/gcc-linaro-7.4.1-2019.02-x86_64_arm-linux-gnueabihf/bin
+export PATH=$PATH:${GCC_Linaro}
+</code></pre></div>
+
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../Tutorial-HPS-Running/" title="Tutorial 4 - HPS - Linux embarcado" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Tutorial 4 - HPS - Linux embarcado
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../Tutorial-HPS-BlinkLED/" title="Tutorial 6 - HPS - BlinkLED" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Tutorial 6 - HPS - BlinkLED
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 / Prof. Rafael Corsi / rafael.corsi@insper.edu.br
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.df0def68.min.js"></script>
+      <script src="../assets/javascripts/bundle.ba57d267.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ["instant", "navigation.expand", {"tabs": true}],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../js/progress.js"></script>
+      
+    
+  </body>
+</html>

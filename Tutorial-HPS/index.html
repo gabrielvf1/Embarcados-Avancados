@@ -1,0 +1,1135 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <link rel="canonical" href="https://insper.github.io/Embarcados-Avancados/Tutorial-HPS/">
+      
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.11">
+    
+    
+      
+        <title>Visão geral - Eletiva: Embarcados Avançados (SoC e Linux Embarcado)</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.860688db.min.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/palette.943997b5.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ffffff">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../css/progress.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#visao-geral" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://insper.github.io/Embarcados-Avancados/" title="Eletiva: Embarcados Avançados (SoC e Linux Embarcado)" class="md-header-nav__button md-logo" aria-label="Eletiva: Embarcados Avançados (SoC e Linux Embarcado)">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            Eletiva: Embarcados Avançados (SoC e Linux Embarcado)
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Visão geral
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/insper/Embarcados-Avancados/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Insper/Embarcados-Avancados
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://insper.github.io/Embarcados-Avancados/" title="Eletiva: Embarcados Avançados (SoC e Linux Embarcado)" class="md-nav__button md-logo" aria-label="Eletiva: Embarcados Avançados (SoC e Linux Embarcado)">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Eletiva: Embarcados Avançados (SoC e Linux Embarcado)
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/insper/Embarcados-Avancados/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Insper/Embarcados-Avancados
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Projeto
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Projeto" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon"></span>
+        Projeto
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Projeto-Overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Projeto-Rubrica/" title="Rubrica" class="md-nav__link">
+      Rubrica
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Projeto-Entrega-1/" title="Entregas" class="md-nav__link">
+      Entregas
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      FPGA
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="FPGA" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        <span class="md-nav__icon md-icon"></span>
+        FPGA
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-FPGA-RTL/" title="Tutorial 1 - FPGA - RTL" class="md-nav__link">
+      Tutorial 1 - FPGA - RTL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Entrega-1/" title="👁 Entrega 1" class="md-nav__link">
+      👁 Entrega 1
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-FPGA-NIOS/" title="Tutorial 2 - FPGA - NIOS" class="md-nav__link">
+      Tutorial 2 - FPGA - NIOS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Entrega-2/" title="👁 Entrega 2" class="md-nav__link">
+      👁 Entrega 2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-FPGA-NIOS-IP/" title="Tutorial 3 - FPGA - IP" class="md-nav__link">
+      Tutorial 3 - FPGA - IP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Entrega-3/" title="👁 Entrega 3" class="md-nav__link">
+      👁 Entrega 3
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      HPS
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="HPS" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        HPS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Visão geral
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" title="Visão geral" class="md-nav__link md-nav__link--active">
+      Visão geral
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#familia-de-fpgas" class="md-nav__link">
+    Família de FPGAs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cortex-a9" class="md-nav__link">
+    Cortex A9
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conexao-entre-hps-e-fpga" class="md-nav__link">
+    Conexão entre HPS e FPGA
+  </a>
+  
+    <nav class="md-nav" aria-label="Conexão entre HPS e FPGA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#axi" class="md-nav__link">
+    AXI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sdram" class="md-nav__link">
+    SDRAM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplicacoes" class="md-nav__link">
+    Aplicações
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximos-passos" class="md-nav__link">
+    Próximos passos
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-HPS-Running/" title="Tutorial 4 - HPS - Linux embarcado" class="md-nav__link">
+      Tutorial 4 - HPS - Linux embarcado
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-HPS-BuildSystem/" title="Tutorial 5 - HPS - Infra" class="md-nav__link">
+      Tutorial 5 - HPS - Infra
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-HPS-BlinkLED/" title="Tutorial 6 - HPS - BlinkLED" class="md-nav__link">
+      Tutorial 6 - HPS - BlinkLED
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Entrega-4/" title="👁 Entrega 4" class="md-nav__link">
+      👁 Entrega 4
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-HPS-Kernel/" title="Tutorial 7 - HPS - Compilando o kernel" class="md-nav__link">
+      Tutorial 7 - HPS - Compilando o kernel
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-HPS-Buildroot/" title="Tutorial 8 - HPS -Buildroot" class="md-nav__link">
+      Tutorial 8 - HPS -Buildroot
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Entrega-5/" title="👁 Entrega 5" class="md-nav__link">
+      👁 Entrega 5
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      HPS + FPGA
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="HPS + FPGA" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        HPS + FPGA
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-HPS-FPGA-BlinkLED/" title="Tutorial - HPS + FPGA - Blink LED" class="md-nav__link">
+      Tutorial - HPS + FPGA - Blink LED
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-HPS-FPGA-VGA/" title="Tutorial - HPS + FPGA - VGA" class="md-nav__link">
+      Tutorial - HPS + FPGA - VGA
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Entrega-6/" title="👁 Entrega 6" class="md-nav__link">
+      👁 Entrega 6
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Entrega-Extra-1/" title="👁 Entrega Opcional 1" class="md-nav__link">
+      👁 Entrega Opcional 1
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Acelerando
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Acelerando" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Acelerando
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Tutorial-Acelerando-HLS/" title="Tutorial - Acelerando - HLS" class="md-nav__link">
+      Tutorial - Acelerando - HLS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Úteis
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Úteis" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        Úteis
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../info-FPGA-e-Softwares/" title="Infraestrutura de HW e SWs" class="md-nav__link">
+      Infraestrutura de HW e SWs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../info-VHDL/" title="VHDL" class="md-nav__link">
+      VHDL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../info-SDcard/" title="Atualizando o SDCARD" class="md-nav__link">
+      Atualizando o SDCARD
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../info-HPS-Serial/" title="Screen" class="md-nav__link">
+      Screen
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../info-HPS-ethernet/" title="Ethernet" class="md-nav__link">
+      Ethernet
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Tutoriais Alunos
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Tutoriais Alunos" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
+        Tutoriais Alunos
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2019/Tutoriais/" title="Tutoriais 2019" class="md-nav__link">
+      Tutoriais 2019
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2019/Gabriel-TensorFlow/" title="Gabriel Moreira - TensorFlow" class="md-nav__link">
+      Gabriel Moreira - TensorFlow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2019/Leo-OpenCL/" title="Leonardo Medeiros - Tutorial OpenCL" class="md-nav__link">
+      Leonardo Medeiros  - Tutorial OpenCL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2019/Elisa-Yocto/" title="Elisa Malzoni - Yocto" class="md-nav__link">
+      Elisa Malzoni - Yocto
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2019/Pedro-OpenCV/" title="Pedro de la Penã - Jetson Nano GPU" class="md-nav__link">
+      Pedro de la Penã - Jetson Nano GPU
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2019/Martim-F1/" title="Martim F. José - FPGA na AWS" class="md-nav__link">
+      Martim F. José - FPGA na AWS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2019/Toranja-DevDriver/" title="Bruno Toranja - Linux Device Driver" class="md-nav__link">
+      Bruno Toranja - Linux Device Driver
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#familia-de-fpgas" class="md-nav__link">
+    Família de FPGAs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cortex-a9" class="md-nav__link">
+    Cortex A9
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conexao-entre-hps-e-fpga" class="md-nav__link">
+    Conexão entre HPS e FPGA
+  </a>
+  
+    <nav class="md-nav" aria-label="Conexão entre HPS e FPGA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#axi" class="md-nav__link">
+    AXI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sdram" class="md-nav__link">
+    SDRAM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aplicacoes" class="md-nav__link">
+    Aplicações
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximos-passos" class="md-nav__link">
+    Próximos passos
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Insper/Embarcados-Avancados/edit/master/docs-src/Tutorial-HPS.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <h1 id="visao-geral">Visão geral<a class="headerlink" href="#visao-geral" title="Permanent link">&para;</a></h1>
+<div class="admonition success">
+<p class="admonition-title">Revisão 2020-2</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> teoria/ texto</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> spellcheck</li>
+</ul>
+</div>
+<p>A FPGA contida no kit DE10-Standard é um chip SoC que em um único dispositivo que possui duas partes: o fabric da FPGA e um Hardware Process System (HPS). HPS é o termo utilizado pela Intel-Altera para definir a parte da FPGA que é fixa e relativa ao processador ARM A9 (pode ser outro ARM, depende da família da FPGA).</p>
+<p><img alt="" src="../figs/Tutorial-HPS-SoC.png" /></p>
+<p>O HPS possui uma unidade de processamento com um ou dois Cores (depende do chip, no nosso caso é <strong>dual core</strong>) e alguns periféricos conectados em seu barramento (DMA, UART, USB, EMACS, ...). Além dos periféricos já contidos no HPS é possível conectarmos novos periféricos sintetizados na FPGA via a interface <strong>HPS FPGA Interfaces</strong>.</p>
+<div class="admonition note">
+<ul>
+<li>Ler Introdução: <a href="https://people.ece.cornell.edu/land/courses/ece5760/DE1_SOC/HPS_INTRO_54001.pdf">1 Introduction to Cyclone V Hard Processor System (HPS)</a></li>
+</ul>
+</div>
+<h2 id="familia-de-fpgas">Família de FPGAs<a class="headerlink" href="#familia-de-fpgas" title="Permanent link">&para;</a></h2>
+<p>A Altera possui quatro famílias de <a href="https://www.intel.com/content/www/us/en/products/programmable/soc.html">FPGAs-SoC</a>:</p>
+<ul>
+<li>Stratix 10 SoC: High end, 14nm com ARM-Cortex-A53 de 64bits quad-core</li>
+<li>Arria 10 SoC: 20nm, Cortex A9 duas core com grande capacidade na FPGA<ul>
+<li>Temos um kit no lab</li>
+</ul>
+</li>
+<li>Arria V SoC: 28nm, Cortex A9 com foco em telecomunicações </li>
+<li><strong>Cyclone V SoC</strong>: Família low end com valor mais baixo e mais low power.</li>
+</ul>
+<h2 id="cortex-a9">Cortex A9<a class="headerlink" href="#cortex-a9" title="Permanent link">&para;</a></h2>
+<p>O Cortex A9 existente no HPS da Cyclone V possui as características a seguir (extraído do <a href="https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/hb/cyclone-v/cv_5v2.pdf">datasheet</a>):</p>
+<ul>
+<li>ARM Cortex-A9 MPCore</li>
+<li>One or two ARM Cortex-A9 processors in a cluster</li>
+<li><a href="https://en.wikipedia.org/wiki/ARM_architecture#Advanced_SIMD_(NEON)">NEON SIMD coprocessor</a> and <a href="https://en.wikipedia.org/wiki/ARM_architecture#Floating-point_(VFP)">VFPv3</a> per processor </li>
+<li><a href="http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.ddi0434c/CJHBABIC.html">Snoop Control Unit (SCU)</a> to ensure coherency within the cluster</li>
+<li>Accelerator coherency port (ACP) that accepts coherency memory access requests</li>
+<li>Interrupt controller</li>
+<li>One general-purpose timer and one watchdog timer per processor •</li>
+<li>Debug and trace features</li>
+<li>32 KB instruction and 32 KB data level 1 (L1) caches per processor</li>
+<li>Memory management unit (MMU) per processor</li>
+<li>ARM L2-310 level 2 (L2) cache</li>
+<li>Shared 512 KB L2 cache</li>
+</ul>
+<p>A seguir um diagrama detalhado do HPS: </p>
+<p><img alt="" src="../figs/Tutorial-HPS-SoC-detalhado.png" /></p>
+<h2 id="conexao-entre-hps-e-fpga">Conexão entre HPS e FPGA<a class="headerlink" href="#conexao-entre-hps-e-fpga" title="Permanent link">&para;</a></h2>
+<p>Note que existe no diagrama anterior algumas interfaces definidas no "FPGA Portion", essas interfaces permitem a ponte entre o <em>Fabric</em> da FPGA e o ARM hard core do chip. As interfaces são, resumidamente:</p>
+<ul>
+<li>FPGA to HPS: Barramento na qual um <strong>Master</strong> na FPGA (Platform Designer) acessa o ARM</li>
+<li>HPS to FPGA: Barramento pelo qual o ARM acessa um periférico (slave) na FPGA</li>
+<li>Lightweight HPS to FPGA: Barramento de menor banda que conecta o ARM em um periférico na FPGA (slave)</li>
+<li>1-6 Masters SDRAM Controller: Permite a FPGA ler e escrever da memória SDRAM externa ao chip</li>
+</ul>
+<h3 id="axi">AXI<a class="headerlink" href="#axi" title="Permanent link">&para;</a></h3>
+<p>Os barramentos são todos do tipo <a href="https://en.wikipedia.org/wiki/Advanced_Microcontroller_Bus_Architecture">AXI</a>, um padrão definido pela própria ARM e usada em seus microcontroladores. </p>
+<div class="admonition note">
+<p class="admonition-title">AXI - AVALON</p>
+<p>Via Platform Designer podemos conectar periféricos com o barramento Avalon (mm) no barramento AXI do ARM, isso é possível por uma "mágica" que a PD faz convertendo um barramento no outro de forma transparente ao usuário.</p>
+</div>
+<h3 id="sdram">SDRAM<a class="headerlink" href="#sdram" title="Permanent link">&para;</a></h3>
+<p>A SDRAM deve ser usada com muita cautela, pois ela será compartilhada com o Linux que estará em execução no ARM, caso um periférico da FPGA acesse "aleatoriamente" a memória SDRAM ele pode sobrescrever dados importantes do kernel e pode causar falhar em todo sistema. Essa alocação deve ser realizada no boot do Linux onde iremos dizer qual região de memória o kernel pode utilizar. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Essa memória que é acessível tanto pelo Linux quanto pela FPGA é uma boa maneira de compartilhamento de dados a serem processados.  </p>
+</div>
+<h2 id="aplicacoes">Aplicações<a class="headerlink" href="#aplicacoes" title="Permanent link">&para;</a></h2>
+<p>Com isso agora é possível unir o melhor dos dois mundos: flexibilidade e paralelismo da FPGA com o melhor dos processadores embarcados ARM. Nos nossos projetos, o NIOS será substituído pelo ARM, possibilitando maior poder de processamento e também suportando a execução de sistemas mais complexos, tal como o Linux.</p>
+<p>Pense na aplicação de uma imagem que será processada pela FPGA de modo a aumentar o throughtput do sistema. Essa imagem seria lida, por exemplo por uma câmera USB conectada no HPS, como geralmente o HPS executa um Linux, temos facilidade de acesso ao driver desse dispositivo.</p>
+<p>A imagem será então lida via o driver e então alocada na memória SDRAM, o endereço da memória assim como as propriedades do processamento serão transferidas para um periférico customizado no Fabric da FPGA via a interface LT-AXI. O periférico que está em modo wait, após ser configurado, começa a ler a imagem na memória SDRAM, processar e salvar o resultado na própria memória. Ao final da conversão uma interrupção é gerada e o Linux irá tratar o dado.</p>
+<p>Enquanto o periférico processa o dado, a aplicação pode de forma concorrente, ler uma nova imagem e já alocar em um novo endereço de memória, pois o processamento e a aquisição agora funcionam de forma simultânea.</p>
+<h2 id="proximos-passos">Próximos passos<a class="headerlink" href="#proximos-passos" title="Permanent link">&para;</a></h2>
+<p>Vamos agora subir executar um Linux no ARM, iremos nesse momento trabalhar com uma imagem já pronta. Siga para o próximo tutorial, onde iremos  configurar nossa infra para podermos gerar códigos para o ARM.</p>
+<p>Siga para <a href="Tutorial-HPS-BuildSystem">Tutorial HPS BuildSystem</a>.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../Entrega-3/" title="👁 Entrega 3" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                👁 Entrega 3
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../Tutorial-HPS-Running/" title="Tutorial 4 - HPS - Linux embarcado" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Tutorial 4 - HPS - Linux embarcado
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 / Prof. Rafael Corsi / rafael.corsi@insper.edu.br
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.df0def68.min.js"></script>
+      <script src="../assets/javascripts/bundle.ba57d267.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ["instant", "navigation.expand", {"tabs": true}],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.5eca75d3.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="../js/progress.js"></script>
+      
+    
+  </body>
+</html>
